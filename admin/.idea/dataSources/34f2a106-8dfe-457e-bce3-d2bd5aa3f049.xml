@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="onlineShop@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="onlineshop">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="agenceassurance"/>
+    <schema id="4" parent="1" name="demophptest"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="new_schema"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="persolist"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="studentmanagementsys"/>
+    <table id="12" parent="2" name="categorie"/>
+    <table id="13" parent="2" name="client"/>
+    <table id="14" parent="2" name="commandes"/>
+    <table id="15" parent="2" name="commentaires"/>
+    <table id="16" parent="2" name="expediteurs"/>
+    <table id="17" parent="2" name="famille"/>
+    <table id="18" parent="2" name="fournisseur"/>
+    <table id="19" parent="2" name="marque"/>
+    <table id="20" parent="2" name="paiement"/>
+    <table id="21" parent="2" name="panier"/>
+    <table id="22" parent="2" name="prodimages"/>
+    <table id="23" parent="2" name="produits"/>
+    <column id="24" parent="12" name="CatID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="25" parent="12" name="familleID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="12" name="catName">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="27" parent="12" name="fk_familleID">
+      <ColNames>familleID</ColNames>
+    </index>
+    <key id="28" parent="12" name="PRIMARY">
+      <ColNames>CatID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="13" name="clientID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="13" name="email">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="13" name="pass">
+      <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="13" name="nom_Prenom">
+      <Position>4</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="33" parent="13" name="tele">
+      <Position>5</Position>
+      <DataType>varchar(18)|0</DataType>
+      <DefaultExpression>&apos;0232659874&apos;</DefaultExpression>
+    </column>
+    <column id="34" parent="13" name="adresse">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+      <DefaultExpression>&apos;maroc&apos;</DefaultExpression>
+    </column>
+    <column id="35" parent="13" name="dateInsc">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="36" parent="13" name="derniereVisite">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="37" parent="13" name="PRIMARY">
+      <ColNames>clientID
+email</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="38" parent="13" name="upperName">
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <column id="39" parent="14" name="cmdId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="14" name="clientID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="14" name="prodId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="14" name="quantite">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="43" parent="14" name="prixTotal">
+      <Position>5</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="44" parent="14" name="paieID">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="45" parent="14" name="dateCommande">
+      <Position>7</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="46" parent="14" name="dateLivraisonPrevue">
+      <Position>8</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="47" parent="14" name="exID">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="48" parent="14" name="statutCommande">
+      <Position>10</Position>
+      <DataType>varchar(100)|0</DataType>
+      <DefaultExpression>&apos;En attente de Paiement&apos;</DefaultExpression>
+    </column>
+    <column id="49" parent="14" name="numeroDeSeuivi">
+      <Position>11</Position>
+      <DataType>bigint(20)|0</DataType>
+      <DefaultExpression>&apos;11223344&apos;</DefaultExpression>
+    </column>
+    <column id="50" parent="14" name="userNoteMsg">
+      <Position>12</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <index id="51" parent="14" name="fk_clientID">
+      <ColNames>clientID</ColNames>
+    </index>
+    <index id="52" parent="14" name="fk_exID">
+      <ColNames>exID</ColNames>
+    </index>
+    <index id="53" parent="14" name="fk_paieID">
+      <ColNames>paieID</ColNames>
+    </index>
+    <index id="54" parent="14" name="fk_prodId">
+      <ColNames>prodId</ColNames>
+    </index>
+    <key id="55" parent="14" name="PRIMARY">
+      <ColNames>cmdId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="56" parent="14" name="setJourLivraison">
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <column id="57" parent="15" name="commId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="15" name="clientID">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="59" parent="15" name="prodId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="60" parent="15" name="commentaire">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="61" parent="15" name="dateAjouter">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="62" parent="15" name="fk_cId">
+      <ColNames>clientID</ColNames>
+    </index>
+    <index id="63" parent="15" name="fk_pId">
+      <ColNames>prodId</ColNames>
+    </index>
+    <key id="64" parent="15" name="PRIMARY">
+      <ColNames>commId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="16" name="exID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="16" name="nomEntreprise">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="67" parent="16" name="phone">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="68" parent="16" name="PRIMARY">
+      <ColNames>exID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="17" name="familleID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="17" name="familleName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="71" parent="17" name="PRIMARY">
+      <ColNames>familleID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="72" parent="18" name="nomComplet">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="73" parent="18" name="pass">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="18" name="email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="18" name="phone">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <DefaultExpression>&apos;0621361189&apos;</DefaultExpression>
+    </column>
+    <column id="76" parent="18" name="panelAccess">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="77" parent="18" name="permission">
+      <Position>7</Position>
+      <DataType>varchar(25)|0</DataType>
+      <DefaultExpression>&apos;simple user&apos;</DefaultExpression>
+    </column>
+    <column id="78" parent="18" name="StatutConfiance">
+      <Position>8</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="79" parent="18" name="derniereVisite">
+      <Position>10</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="80" parent="18" name="fourniID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="81" parent="18" name="statutInsc">
+      <Position>9</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="82" parent="18" name="nomComplet">
+      <ColNames>nomComplet</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="83" parent="18" name="PRIMARY">
+      <ColNames>fourniID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="84" parent="18" name="nomComplet">
+      <ColNames>nomComplet</ColNames>
+      <UnderlyingIndexName>nomComplet</UnderlyingIndexName>
+    </key>
+    <column id="85" parent="19" name="marqueId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="86" parent="19" name="marqueName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="87" parent="19" name="marImage">
+      <Position>3</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <key id="88" parent="19" name="PRIMARY">
+      <ColNames>marqueId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="89" parent="20" name="paieID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="90" parent="20" name="paieType">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="91" parent="20" name="PRIMARY">
+      <ColNames>paieID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="92" parent="21" name="panierId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="93" parent="21" name="prodId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="21" name="PanierQte">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="95" parent="21" name="fk_prodId">
+      <ColNames>prodId</ColNames>
+    </index>
+    <key id="96" parent="21" name="PRIMARY">
+      <ColNames>panierId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="97" parent="22" name="prodImageID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="98" parent="22" name="prodId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="22" name="image1">
+      <Position>3</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="100" parent="22" name="image2">
+      <Position>4</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="101" parent="22" name="image3">
+      <Position>5</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="102" parent="22" name="image4">
+      <Position>6</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <index id="103" parent="22" name="fk_prodId">
+      <ColNames>prodId</ColNames>
+    </index>
+    <key id="104" parent="22" name="PRIMARY">
+      <ColNames>prodImageID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="105" parent="23" name="prodId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="106" parent="23" name="prodLabel">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="107" parent="23" name="marqueId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="108" parent="23" name="CatID">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="109" parent="23" name="prodPrix">
+      <Position>5</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="110" parent="23" name="ancienPrix">
+      <Position>6</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="111" parent="23" name="description">
+      <Position>7</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="112" parent="23" name="prodQté">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;5&apos;</DefaultExpression>
+    </column>
+    <column id="113" parent="23" name="enStock">
+      <Position>9</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="114" parent="23" name="dateAjoutee">
+      <Position>10</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="115" parent="23" name="presente">
+      <Position>11</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="116" parent="23" name="fourniID">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <index id="117" parent="23" name="fk_CatID">
+      <ColNames>CatID</ColNames>
+    </index>
+    <index id="118" parent="23" name="fk_Fourn">
+      <ColNames>fourniID</ColNames>
+    </index>
+    <index id="119" parent="23" name="fk_marqueId">
+      <ColNames>marqueId</ColNames>
+    </index>
+    <key id="120" parent="23" name="PRIMARY">
+      <ColNames>prodId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="121" parent="23" name="fillDescription">
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+  </database-model>
+</dataSource>

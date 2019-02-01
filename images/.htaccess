@@ -1,0 +1,3 @@
+#.htaccess
+#Deny from all
+#ErrorDocument 403 "<center><h1>Vous ne pouvez pas acceder directement aux images</h1></center>"

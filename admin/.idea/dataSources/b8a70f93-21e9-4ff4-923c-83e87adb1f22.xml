@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="agenceassurance@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="agenceassurance">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="demophptest"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="new_schema"/>
+    <schema id="7" parent="1" name="onlineshop"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="persolist"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="studentmanagementsys"/>
+    <table id="12" parent="2" name="attestation"/>
+    <table id="13" parent="2" name="client"/>
+    <table id="14" parent="2" name="credit"/>
+    <table id="15" parent="2" name="fractionnement"/>
+    <table id="16" parent="2" name="logininfo"/>
+    <table id="17" parent="2" name="operation"/>
+    <table id="18" parent="2" name="quittance"/>
+    <table id="19" parent="2" name="usages"/>
+    <table id="20" parent="2" name="vehicle"/>
+    <column id="21" parent="12" name="idAttest">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="12" name="typeAttest">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <key id="23" parent="12" name="PRIMARY">
+      <ColNames>idAttest</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="24" parent="13" name="cin">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="13" name="nomComplet">
+      <Position>2</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="26" parent="13" name="adrsClient">
+      <Position>3</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="27" parent="13" name="teleClient">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <key id="28" parent="13" name="PRIMARY">
+      <ColNames>cin</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="29" parent="13" name="toUpperInsert">
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <trigger id="30" parent="13" name="cltCascade">
+      <Turn>after-row</Turn>
+      <Events>D</Events>
+    </trigger>
+    <column id="31" parent="14" name="CreditId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="14" name="numQuitt">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="33" parent="14" name="creditSum">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="34" parent="14" name="Diviser">
+      <Position>4</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="35" parent="14" name="dateFragOne">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="36" parent="14" name="fragOne">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="37" parent="14" name="dateFragTwo">
+      <Position>7</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="38" parent="14" name="fragTwo">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="39" parent="14" name="dateFragThree">
+      <Position>9</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="40" parent="14" name="fragThree">
+      <Position>10</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="41" parent="14" name="dateFragFour">
+      <Position>11</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="42" parent="14" name="fragFour">
+      <Position>12</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="43" parent="14" name="dateFragFive">
+      <Position>13</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="44" parent="14" name="fragFive">
+      <Position>14</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="45" parent="14" name="dateFragSix">
+      <Position>15</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="46" parent="14" name="fragSix">
+      <Position>16</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <index id="47" parent="14" name="fk_frgCrdt">
+      <ColNames>numQuitt</ColNames>
+    </index>
+    <key id="48" parent="14" name="PRIMARY">
+      <ColNames>CreditId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="15" name="idFraction">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="15" name="idAttest">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="51" parent="15" name="numQuitt">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="52" parent="15" name="datePremiereFrac">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="53" parent="15" name="fracOne">
+      <Position>5</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="54" parent="15" name="dateDeuxiemeFrac">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="55" parent="15" name="fracTwo">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="56" parent="15" name="dateTroisiemeFrac">
+      <Position>8</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="57" parent="15" name="fracThree">
+      <Position>9</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="58" parent="15" name="dateQuatriemeFrac">
+      <Position>10</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="59" parent="15" name="fracFour">
+      <Position>11</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <index id="60" parent="15" name="fk_attest">
+      <ColNames>idAttest</ColNames>
+    </index>
+    <index id="61" parent="15" name="fk_qu">
+      <ColNames>numQuitt</ColNames>
+    </index>
+    <key id="62" parent="15" name="PRIMARY">
+      <ColNames>idFraction</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="16" name="idLogin">
+      <Position>1</Position>
+      <DataType>int(3)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="16" name="user">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="16" name="pass">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="66" parent="16" name="usertype">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="67" parent="16" name="GrantedKey">
+      <Position>5</Position>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <key id="68" parent="16" name="PRIMARY">
+      <ColNames>idLogin
+user</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="17" name="idOpt">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="17" name="libelOpt">
+      <Position>2</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="71" parent="17" name="dateOpt">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="72" parent="17" name="userName">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="73" parent="17" name="fk_login">
+      <ColNames>userName</ColNames>
+    </index>
+    <key id="74" parent="17" name="PRIMARY">
+      <ColNames>idOpt</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="18" name="numQuitt">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="76" parent="18" name="cin">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="77" parent="18" name="dateQuitt">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="78" parent="18" name="primeReele">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="79" parent="18" name="reglement">
+      <Position>5</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="80" parent="18" name="perte">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="81" parent="18" name="quittAnnuler">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="82" parent="18" name="resiliation">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <index id="83" parent="18" name="fk_ct">
+      <ColNames>cin</ColNames>
+    </index>
+    <key id="84" parent="18" name="PRIMARY">
+      <ColNames>numQuitt</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="85" parent="18" name="deleteQuett">
+      <Turn>after-row</Turn>
+      <Events>D</Events>
+    </trigger>
+    <column id="86" parent="19" name="idUsage">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="87" parent="19" name="libaleUsage">
+      <Position>2</Position>
+      <DataType>varchar(80)|0</DataType>
+    </column>
+    <key id="88" parent="19" name="PRIMARY">
+      <ColNames>idUsage</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="89" parent="20" name="numMatric">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="20" name="Puissance">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="91" parent="20" name="carburant">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="92" parent="20" name="idUsage">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="93" parent="20" name="cin">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <index id="94" parent="20" name="fk_Client">
+      <ColNames>cin</ColNames>
+    </index>
+    <index id="95" parent="20" name="fk_Usage">
+      <ColNames>idUsage</ColNames>
+    </index>
+    <key id="96" parent="20" name="PRIMARY">
+      <ColNames>numMatric</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="97" parent="20" name="toUpperVeh">
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+  </database-model>
+</dataSource>
